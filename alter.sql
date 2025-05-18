@@ -3,6 +3,8 @@
 -- show all form person table
 SELECT * FROM test_table;
 
+--//////////////////////////////////////////////////////
+-- DDL (Data Definition Language)
 -- alter table name
 alter table person 
     RENAME to Test_Table;
@@ -30,3 +32,22 @@ alter table test_table
 -- insert value to table
 insert into test_table 
     values(5, 'safa01', 'safa', 20, false, 'safa@gmail.com'  )
+
+
+alter table test_table
+    alter COLUMN first_name drop not null;
+
+
+-- make col unique
+alter table test_table
+     add constraint unique_test_table_age UNIQUE(age);
+
+-- drop col constraint
+alter table test_table
+     drop constraint unique_test_table_age;
+
+-- clear all data from table
+TRUNCATE TABLE test_table;
+
+-- delete a table
+DROP Table test_table
