@@ -48,3 +48,9 @@ SELECT * FROM table2
 
 SELECT * FROM table2
     WHERE age > 21
+
+-- functions
+SELECT upper(first_name) as first_name_in_uppercase, * FROM test_table;
+
+SELECT concat(first_name,' ', age) FROM test_table
+
