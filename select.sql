@@ -32,3 +32,19 @@ SELECT * FROM table2;
 -- show col with alias name
 SELECT email as student_email FROM table2
 
+-- sort by order
+SELECT * FROM table2 ORDER BY student_id ASC;
+
+-- show distinct value from table
+SELECT DISTINCT country FROM table2
+
+-- show data by specific country
+SELECT * FROM table2
+    WHERE country = 'India' AND grade = 'A+'
+
+-- show data by multiple country
+SELECT * FROM table2
+    WHERE (country = 'USA' OR country = 'India') AND age = 24
+
+SELECT * FROM table2
+    WHERE age > 21
