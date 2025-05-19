@@ -69,3 +69,21 @@ SELECT * FROM table2
 
 -- set default value
 SELECT COALESCE(email, 'N/A') FROM table2 
+
+-- ///////////////////////////////////////////////////////////////
+-- Exploring IN, BETWEEN, LIKE, and ILIKE Operators in PostgreSQL.
+
+-- SELECT * FROM table2 WHERE country = 'India' OR country = 'Canada'
+-- or
+SELECT * FROM table2 WHERE country IN('India', 'Canada')
+
+SELECT * FROM table2 WHERE age between 18 and 20
+
+SELECT * FROM table2 WHERE last_name LIKE '%n'
+
+SELECT * FROM table2 WHERE first_name LIKE 'A%'
+
+SELECT * FROM table2 WHERE first_name LIKE '__a%'
+
+SELECT * FROM table2 WHERE first_name ILIKE 'a%'
+
