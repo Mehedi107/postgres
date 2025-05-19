@@ -49,8 +49,23 @@ SELECT * FROM table2
 SELECT * FROM table2
     WHERE age > 21
 
--- functions
+-- functions (scalar and aggregation)
 SELECT upper(first_name) as first_name_in_uppercase, * FROM test_table;
 
 SELECT concat(first_name,' ', age) FROM test_table
 
+SELECT max(age) FROM test_table
+
+SELECT AVG(age) FROM test_table
+
+SELECT length(first_name) FROM test_table
+
+select length(max(first_name)) from table2
+
+select max(length(first_name)) from table2
+
+SELECT * FROM table2
+    WHERE email is NULL;
+
+-- set default value
+SELECT COALESCE(email, 'N/A') FROM table2 
