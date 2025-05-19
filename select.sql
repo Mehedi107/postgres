@@ -87,3 +87,11 @@ SELECT * FROM table2 WHERE first_name LIKE '__a%'
 
 SELECT * FROM table2 WHERE first_name ILIKE 'a%'
 
+-- /////////////////////////////////////////////////////////////
+-- Pagination with Limit Offset and Data Deletion in PostgreSQL
+SELECT * FROM table2 LIMIT 2;
+
+SELECT * FROM table2 LIMIT 2 OFFSET 2;
+
+DELETE FROM table2
+    WHERE country = 'India'
