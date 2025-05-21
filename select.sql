@@ -95,3 +95,7 @@ SELECT * FROM table2 LIMIT 2 OFFSET 2;
 
 DELETE FROM table2
     WHERE country = 'India'
+
+UPDATE table2
+    SET email = 'Default@gmail.com'
+    WHERE student_id = 10
