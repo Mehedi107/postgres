@@ -21,3 +21,15 @@ SELECT *, age(CURRENT_DATE, dob) from table2
 select extract(year from '2025-05-05'::date)
 
 select extract(month from '2025-05-05'::date)
+
+select country, count(country) from table2
+    group by country
+
+select country, avg(age)
+    from table2
+    GROUP BY country
+    HAVING avg(age) > 19
+
+SELECT extract(year from dob) as birth_year, count(*)
+    FROM table2
+        GROUP BY birth_year
