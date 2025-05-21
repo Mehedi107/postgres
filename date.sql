@@ -1,3 +1,4 @@
+-- Active: 1747577075912@@127.0.0.1@5432@mehedi
 show timezone;
 
 SELECT now()
@@ -33,3 +34,15 @@ select country, avg(age)
 SELECT extract(year from dob) as birth_year, count(*)
     FROM table2
         GROUP BY birth_year
+
+
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(25) not NULL
+)
+
+CREATE TABLE posts(
+    id SERIAL PRIMARY KEY,
+    title TEXT not null,
+    user_id INTEGER REFERENCES users(id)
+)
