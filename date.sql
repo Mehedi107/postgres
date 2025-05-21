@@ -36,27 +36,3 @@ SELECT extract(year from dob) as birth_year, count(*)
         GROUP BY birth_year
 
 
-CREATE TABLE users(
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(25) not NULL
-)
-
-CREATE TABLE posts(
-    id SERIAL PRIMARY KEY,
-    title TEXT not null,
-    user_id INTEGER REFERENCES users(id)
-)
-
-INSERT INTO users(username) 
-    VALUES('Akash'),
-    ('Bappy'),
-    ('Arman'),
-    ('Mahadi')
-
-INSERT INTO posts(title, user_id) 
-    VALUES('This title 1', 1), 
-        ('This title 2', 2),
-        ('This title 3', 3),
-        ('This title 4', 4)
-
-INSERT INTO posts(title, user_id) VALUES('This title 5', 5)
