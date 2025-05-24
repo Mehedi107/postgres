@@ -1,3 +1,4 @@
+-- Active: 1747577075912@@127.0.0.1@5432@mehedi
 CREATE table my_user(
     user_name VARCHAR(50),
     email VARCHAR(100)
