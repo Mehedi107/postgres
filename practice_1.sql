@@ -116,3 +116,59 @@ GROUP BY customer_id
 -- Find the total amount of orders placed each month in the year 2022.
 SELECT extract(MONTH FROM order_date) as month, round(sum(total_amount)) as total FROM orders
 GROUP BY month
+
+
+
+
+CREATE TABLE rangers_demo(
+    ranger_id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    region VARCHAR(25)
+)
+
+INSERT INTO rangers_demo(name, region) 
+VALUES
+    ('Alice Green', 'Northern Hills'),
+    ('Bob White', 'River Delta'),
+    ('Carol King', 'Mountain Range');
+
+CREATE TABLE species_demo (
+    species_id SERIAL PRIMARY KEY,
+    common_name VARCHAR(100),
+    scientific_name VARCHAR(150),
+    discovery_date DATE,
+    conservation_status VARCHAR(50)
+);
+
+INSERT INTO species_demo (common_name, scientific_name, discovery_date, conservation_status)
+VALUES
+  ('Snow Leopard', 'Panthera uncia', '1775-01-01', 'Endangered'),
+  ('Bengal Tiger', 'Panthera tigris tigris', '1758-01-01', 'Endangered'),
+  ('Red Panda', 'Ailurus fulgens', '1825-01-01', 'Vulnerable'),
+  ('Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered');
+
+select * from species
+
+CREATE TABLE sightings_demo (
+    sighting_id SERIAL PRIMARY KEY,
+    species_id INT REFERENCES species(species_id),
+    ranger_id INT REFERENCES rangers(ranger_id),
+    location VARCHAR(100),
+    sighting_time TIMESTAMP,
+    notes TEXT
+);
+
+INSERT INTO sightings_demo (species_id, ranger_id, location, sighting_time, notes)
+VALUES
+  (1, 1, 'Peak Ridge',        '2024-05-10 07:45:00', 'Camera trap image captured'),
+  (2, 2, 'Bankwood Area',     '2024-05-12 16:20:00', 'Juvenile seen'),
+  (3, 3, 'Bamboo Grove East', '2024-05-15 09:10:00', 'Feeding observed'),
+  (1, 2, 'Snowfall Pass',     '2024-05-18 18:30:00', NULL);
+
+select * from rangers_demo r
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM sightings_demo s
+  WHERE s.ranger_id = r.ranger_id
+);
+-- join sightings_demo on sightings_demo.ranger_id = rangers_demo.ranger_id
