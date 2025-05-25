@@ -42,7 +42,11 @@ WHERE ক্লজ ব্যবহার করা হয় শর্ত দিয়
 
 <pre lang="md"> | id | name | grade | |----|--------|-------| | 1 | Rahim | A | | 2 | Karim | B | | 3 | Jannat | A | </pre>
 
-| id | name | grade |
+| id  | name   | grade |
+| --- | ------ | ----- |
+| 1   | Rahim  | A     |
+| 2   | Karim  | B     |
+| 3   | Jannat | A     |
 
 এখন আমি শুধু যেসব ছাত্র A পেয়েছে, তাদের দেখতে চাই। তখন আমরা লিখি:
 
